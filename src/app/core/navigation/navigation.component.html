@@ -1,10 +1,15 @@
-<nav>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <a routerLink="/home" routerLinkActive="active">Home</a>
-    </li>
-    <li class="list-group-item">
-      <a routerLink="/home" routerLinkActive="active">Home</a>
-    </li>
+<nav class="nav" [ngClass]="isNavOpen ? '' : 'nav-closed'">
+  <button class="nav-toggle-btn" (click)="toggleNav()">
+    <fa-icon
+      class="fa-xl"
+      [icon]="isNavOpen ? faChevronLeft : faChevronRight"
+    ></fa-icon>
+  </button>
+  <ul class="nav-list">
+    <nav-link
+      route="/home"
+      [icon]="faHouse"
+      [text]="isNavOpen ? 'Home' : ''"
+    ></nav-link>
   </ul>
 </nav>
