@@ -30,6 +30,8 @@
     flex-direction: column;
     padding-top: 40px;
     gap: 20px;
+    height: 100%;
+    padding-bottom: 10px;
 }
 
 
@@ -41,4 +43,11 @@
 .nav-list-closed{
     align-items: center;
 
+}
+
+.nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
 }

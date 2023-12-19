@@ -1,4 +1,4 @@
-<nav class="nav rounded" [ngClass]="isNavOpen ? '' : 'nav-closed'">
+<nav class="nav" [ngClass]="isNavOpen ? '' : 'nav-closed'">
   <button class="nav-toggle-btn" (click)="toggleNav()">
     <fa-icon
       class="fa-xl"
@@ -9,20 +9,29 @@
     class="nav-list"
     [ngClass]="isNavOpen ? 'nav-list-open' : 'nav-list-closed'"
   >
-    <nav-link
-      route="/home"
-      [icon]="faHouse"
-      [text]="isNavOpen ? 'Home' : ''"
-    ></nav-link>
-    <nav-link
-      route="/time-table"
-      [icon]="faCalendar"
-      [text]="isNavOpen ? 'Time Table' : ''"
-    ></nav-link>
-    <nav-link
-      route="/all-time"
-      [icon]="faHourGlassHalf"
-      [text]="isNavOpen ? 'All Time' : ''"
-    ></nav-link>
+    <div class="nav-links">
+      <nav-link
+        route="/home"
+        [icon]="faHouse"
+        [text]="isNavOpen ? 'Home' : ''"
+      ></nav-link>
+      <nav-link
+        route="/time-table"
+        [icon]="faCalendar"
+        [text]="isNavOpen ? 'Time Table' : ''"
+      ></nav-link>
+      <nav-link
+        route="/all-time"
+        [icon]="faHourGlassHalf"
+        [text]="isNavOpen ? 'All Time' : ''"
+      ></nav-link>
+    </div>
+    <div class="nav-user-link">
+      <nav-link
+        route="/user"
+        [icon]="faUser"
+        [text]="isNavOpen ? userName : ''"
+      ></nav-link>
+    </div>
   </ul>
 </nav>
