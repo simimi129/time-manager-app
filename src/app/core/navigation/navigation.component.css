@@ -3,8 +3,8 @@
     flex-direction: column;
     font-size: 2rem;
     color: #fff;
-    border-radius: 20px;
     background-color: #222;
+    border-radius: 20px;
     width: 200px;
     height: 100%;
     padding: 10px;
@@ -21,9 +21,24 @@
     border-radius: 15px;
     outline: none;
     border: none;
-    background-color: #0026ff;
+    background-color: #808080;
 }
 
 .nav-list{
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 20px;
+}
+
+
+.nav-list-open{
+    align-items:start;
+    padding-left: 4px;
+}
+
+.nav-list-closed{
+    align-items: center;
+
 }

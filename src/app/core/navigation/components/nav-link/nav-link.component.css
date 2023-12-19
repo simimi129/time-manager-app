@@ -1,8 +1,20 @@
 .nav-link{
     color: #fff;
     text-decoration: none;
+    display: flex;
 }
 
 .active-link{
     color: purple;
+}
+
+.icon{
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    padding-left: 2px;
 }

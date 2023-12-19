@@ -6,6 +6,8 @@ import {
   faChevronRight,
   faChevronLeft,
   faHouse,
+  faCalendar,
+  faHourglassHalf,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 
@@ -21,6 +23,8 @@ export class NavigationComponent {
   faChevronRight = faChevronRight;
   faChevronLeft = faChevronLeft;
   faHouse = faHouse;
+  faCalendar = faCalendar;
+  faHourGlassHalf = faHourglassHalf;
 
   toggleNav(): void {
     this.isNavOpen = !this.isNavOpen;

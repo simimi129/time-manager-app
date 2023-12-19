@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'nav-link',
   standalone: true,
-  imports: [RouterModule, FontAwesomeModule],
+  imports: [RouterModule, FontAwesomeModule, CommonModule],
   templateUrl: './nav-link.component.html',
   styleUrl: './nav-link.component.css',
 })

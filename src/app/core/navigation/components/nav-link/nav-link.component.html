@@ -1,5 +1,8 @@
 <li>
-  <a class="nav-link" [routerLink]="route" routerLinkActive="active-link"
-    ><fa-icon [icon]="icon"></fa-icon>{{ text }}</a
+  <a class="nav-link" [routerLink]="route" routerLinkActive="active-link">
+    <div class="icon">
+      <fa-icon [icon]="icon"></fa-icon>
+    </div>
+    <span class="text">{{ text | uppercase }}</span></a
   >
 </li>
