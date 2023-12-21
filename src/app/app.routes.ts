@@ -5,6 +5,7 @@ import { TimeTableComponent } from 'modules/time-table/time-table.component';
 import { UserComponent } from 'modules/user/user.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'time-table', component: TimeTableComponent },
   { path: 'all-time', component: AllTimeComponent },

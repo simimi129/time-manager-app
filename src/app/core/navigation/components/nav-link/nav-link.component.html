@@ -1,5 +1,10 @@
 <li>
-  <a class="nav-link" [routerLink]="route" routerLinkActive="active-link">
+  <a
+    class="nav-link"
+    [routerLink]="route"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     <div class="icon">
       <fa-icon [icon]="icon"></fa-icon>
     </div>
