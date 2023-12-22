@@ -1,0 +1,16 @@
+.left{
+    background-color: salmon;
+    width: 300px;
+    padding: 20px 10px;
+}
+
+.right{
+    background-color: seagreen;
+    flex-grow: 1;
+    padding: 20px 10px;
+}
+
+:host{
+    display: flex;
+    height: 100%;
+}
