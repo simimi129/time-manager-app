@@ -3,11 +3,12 @@ import { RouterModule } from '@angular/router';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { TooltipDirective } from 'shared/directives/tooltip.directive';
 
 @Component({
   selector: 'nav-link',
   standalone: true,
-  imports: [RouterModule, FontAwesomeModule, CommonModule],
+  imports: [RouterModule, FontAwesomeModule, CommonModule, TooltipDirective],
   templateUrl: './nav-link.component.html',
   styleUrl: './nav-link.component.css',
 })
