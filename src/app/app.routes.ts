@@ -1,13 +1,11 @@
 import { Routes } from '@angular/router';
-import { AllTimeComponent } from 'modules/all-time/all-time.component';
-import { HomeComponent } from 'modules/home/home.component';
-import { TimeTableComponent } from 'modules/time-table/time-table.component';
+import { HabitsComponent } from 'modules/habits/habits.component';
+import { TodosComponent } from 'modules/todos/todos.component';
 import { UserComponent } from 'modules/user/user.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'time-table', component: TimeTableComponent },
-  { path: 'all-time', component: AllTimeComponent },
+  { path: '', redirectTo: 'todos', pathMatch: 'full' },
+  { path: 'todos', component: TodosComponent },
+  { path: 'habits', component: HabitsComponent },
   { path: 'user', component: UserComponent },
 ];

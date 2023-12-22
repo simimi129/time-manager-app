@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { PanelDirective } from 'shared/directives/panel.directive';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-todos',
   standalone: true,
   imports: [],
   hostDirectives: [PanelDirective],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  templateUrl: './todos.component.html',
+  styleUrl: './todos.component.css',
 })
-export class HomeComponent {}
+export class TodosComponent {}

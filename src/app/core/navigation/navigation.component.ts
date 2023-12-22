@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavLinkComponent } from './components/nav-link/nav-link.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
-  faChevronRight,
-  faChevronLeft,
   faHouse,
   faCalendar,
   faHourglassHalf,
   faUser,
+  faRepeat,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
+import { DateService } from 'services/date-service/date.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -19,19 +20,29 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit, OnDestroy {
+  private dateService = inject(DateService);
+
   userName: string = 'no user';
+  date!: number;
 
-  isNavOpen: boolean = false;
-
-  faChevronRight = faChevronRight;
-  faChevronLeft = faChevronLeft;
   faHouse = faHouse;
   faCalendar = faCalendar;
   faHourGlassHalf = faHourglassHalf;
   faUser = faUser;
+  faRepeat = faRepeat;
 
-  toggleNav(): void {
-    this.isNavOpen = !this.isNavOpen;
+  subscription$: Subscription = new Subscription();
+
+  ngOnInit(): void {
+    this.subscription$ = this.dateService
+      .getDateObservable()
+      .subscribe((date: Date) => {
+        this.date = date.getDate();
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 }

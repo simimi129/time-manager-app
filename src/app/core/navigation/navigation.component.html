@@ -1,37 +1,14 @@
-<nav class="nav" [ngClass]="isNavOpen ? '' : 'nav-closed'">
-  <button class="nav-toggle-btn" (click)="toggleNav()">
-    <fa-icon
-      class="fa-xl"
-      [icon]="isNavOpen ? faChevronLeft : faChevronRight"
-    ></fa-icon>
-  </button>
-  <ul
-    class="nav-list"
-    [ngClass]="isNavOpen ? 'nav-list-open' : 'nav-list-closed'"
-  >
+<nav class="nav">
+  <ul class="nav-list">
     <div class="nav-links">
-      <nav-link
-        route="/home"
-        [icon]="faHouse"
-        [text]="isNavOpen ? 'Home' : ''"
-      ></nav-link>
-      <nav-link
-        route="/time-table"
-        [icon]="faCalendar"
-        [text]="isNavOpen ? 'Time Table' : ''"
-      ></nav-link>
-      <nav-link
-        route="/all-time"
-        [icon]="faHourGlassHalf"
-        [text]="isNavOpen ? 'All Time' : ''"
-      ></nav-link>
+      <div class="custom-nav-link-with-date">
+        <span class="date">{{ date }}</span>
+        <nav-link route="/todos" [icon]="faCalendar" text="Todos"></nav-link>
+      </div>
+      <nav-link route="/habits" [icon]="faRepeat" text="Habits"></nav-link>
     </div>
     <div class="nav-user-link">
-      <nav-link
-        route="/user"
-        [icon]="faUser"
-        [text]="isNavOpen ? userName : ''"
-      ></nav-link>
+      <nav-link route="/user" [icon]="faUser" text="User"></nav-link>
     </div>
   </ul>
 </nav>

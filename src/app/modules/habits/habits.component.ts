@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { PanelDirective } from 'shared/directives/panel.directive';
 
 @Component({
-  selector: 'app-all-time',
+  selector: 'app-habits',
   standalone: true,
   imports: [],
   hostDirectives: [PanelDirective],
-  templateUrl: './all-time.component.html',
-  styleUrl: './all-time.component.css',
+  templateUrl: './habits.component.html',
+  styleUrl: './habits.component.css',
 })
-export class AllTimeComponent {}
+export class HabitsComponent {}
