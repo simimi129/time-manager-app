@@ -1,0 +1,16 @@
+<div class="header">
+  <h2>{{ title }}</h2>
+  <button class="btn" (click)="isOpen = !isOpen">
+    @if (isOpen){ <fa-icon [icon]="faChevronUp"></fa-icon> } @else {
+    <fa-icon [icon]="faChevronDown"></fa-icon>
+    }
+  </button>
+</div>
+
+@if (isOpen) {
+<div class="todos">
+  @for (todo of todos; track todo.id) {
+  <span>{{ todo.title }}</span>
+  }
+</div>
+}

@@ -1,0 +1,29 @@
+:host{
+    display: flex;
+}
+
+
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px 10px;
+}
+
+.header-container{
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.todos-containers{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right{
+    flex-grow: 1;
+    padding: 20px 10px;
+}

@@ -1,4 +1,16 @@
-<app-two-col-page>
-  <div left>left</div>
-  <div right>right</div>
-</app-two-col-page>
+<div class="left">
+  <div class="header-container">
+    <h1>Todos</h1>
+  </div>
+  <div class="todos-containers">
+    <app-todos-container
+      title="Today"
+      [todos]="todosToday"
+    ></app-todos-container>
+    <app-todos-container
+      title="This week"
+      [todos]="todosThisWeek"
+    ></app-todos-container>
+  </div>
+</div>
+<div class="right">right</div>
