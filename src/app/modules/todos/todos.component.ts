@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TodosContainerComponent } from 'shared/components/todos-container/todos-container.component';
 import { PanelDirective } from 'shared/directives/panel.directive';
 import { Todo } from 'shared/models/Todo.model';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DateService } from 'services/date-service/date.service';
 
 @Component({
   selector: 'app-todos',
@@ -14,6 +15,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './todos.component.css',
 })
 export class TodosComponent {
+  private dateService = inject(DateService);
+  date!: Date;
+  week!: Date[];
+
   faPlus = faPlus;
 
   todosToday: Todo[] = [
@@ -49,4 +54,8 @@ export class TodosComponent {
       title: 'Todo 4',
     },
   ];
+
+  getWeek() {
+    //this.week = this.dateService.getWeek();
+  }
 }

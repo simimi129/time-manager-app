@@ -31,7 +31,7 @@ export class TodosContainerComponent {
   isOpen: boolean = false;
   state: 'closed' | 'open' = 'closed';
 
-  togglePanel() {
+  toggleOpen() {
     this.isOpen = !this.isOpen;
     this.state = this.isOpen ? 'open' : 'closed';
   }
