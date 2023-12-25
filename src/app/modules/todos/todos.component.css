@@ -11,7 +11,7 @@
     padding: 20px 10px;
 }
 
-.left-header{
+.header{
     display: flex;
     height: 40px;
     align-items: center;
@@ -27,7 +27,6 @@
 .right{
     flex-grow: 1;
     padding: 20px 10px;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn {
@@ -55,10 +54,76 @@
 .right {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.right-header{
+.header-dates{
     display: flex;
-    height: 40px;
+    gap: 10px;
+}
+
+.week-table{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 96%;
+    gap: 30px;
+}
+
+.week-table-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dates, .days{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 30px;
+}
+
+.day{
+    min-width: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.week-table-body{
+    display: flex;
+    height: 100%;
+    overflow-y: scroll;
+    
+}
+
+.week-table-body::-webkit-scrollbar {
+    display: none;
+}
+
+.hours{
+    min-width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.hour{
+    min-height: 100px;
+}
+
+.tasks{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-right: 30px;
+}
+
+.day-col{
+    min-width: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }

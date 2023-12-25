@@ -1,5 +1,5 @@
 <div class="left">
-  <div class="left-header">
+  <div class="header">
     <h1>Todos</h1>
     <button class="btn">
       <fa-icon class="icon fa-lg" [icon]="faPlus"></fa-icon>
@@ -17,16 +17,51 @@
   </div>
 </div>
 <div class="right">
-  <div class="right-header">
-    <h1>{{ currentWeek | date : "MMMM yyyy" }}</h1>
-    <button class="btn">
-      <fa-icon class="icon fa-lg" [icon]="faChevronDown"></fa-icon>
-    </button>
-    <button class="btn">
-      <fa-icon class="icon fa-lg" [icon]="faArrowLeft"></fa-icon>
-    </button>
-    <button class="btn">
-      <fa-icon class="icon fa-lg" [icon]="faArrowRight"></fa-icon>
-    </button>
+  <div class="header">
+    <div class="header-dates">
+      <h1>{{ currentWeek | date : "MMMM yyyy" }}</h1>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faChevronDown"></fa-icon>
+      </button>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faArrowLeft"></fa-icon>
+      </button>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faArrowRight"></fa-icon>
+      </button>
+    </div>
+    <div class="header-btns">
+      <button class="btn">Share</button>
+    </div>
+  </div>
+  <div class="week-table">
+    <div class="week-table-header">
+      <div class="dates">
+        @for (day of dates; track $index) {
+        <h1 class="day">
+          {{ day | date : "dd" }}
+        </h1>
+        }
+      </div>
+      <div class="days">
+        @for (day of dates; track $index) {
+        <h2 class="day">
+          {{ day | date : "E" }}
+        </h2>
+        }
+      </div>
+    </div>
+    <div class="week-table-body">
+      <div #hoursEl class="hours">
+        @for (hour of hours; track $index) {
+        <span class="hour">{{ hour }}</span>
+        }
+      </div>
+      <div #tasksEl class="tasks" [ngStyle]="{ 'height.px': calculatedHeight }">
+        @for (day of dates; track $index) {
+        <div class="day-col">Task</div>
+        }
+      </div>
+    </div>
   </div>
 </div>

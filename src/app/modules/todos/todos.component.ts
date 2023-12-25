@@ -1,4 +1,14 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { TodosContainerComponent } from 'shared/components/todos-container/todos-container.component';
 import { PanelDirective } from 'shared/directives/panel.directive';
 import { Todo } from 'shared/models/Todo.model';
@@ -11,21 +21,29 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DateService } from 'services/date-service/date.service';
 import { Subscription } from 'rxjs';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [TodosContainerComponent, FontAwesomeModule, DatePipe],
+  imports: [CommonModule, FontAwesomeModule, TodosContainerComponent, DatePipe],
   hostDirectives: [PanelDirective],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, AfterViewInit, OnDestroy {
   private dateService = inject(DateService);
   date!: Date;
   dates!: Date[];
   currentWeek!: Date;
+  startHour = 6;
+  endHour = 22;
+  hours: string[] = [];
+
+  calculatedHeight = 0;
+
+  @ViewChild('hoursEl', { static: true }) hoursEl!: ElementRef;
+  @ViewChild('tasksEl', { static: true }) tasksEl!: ElementRef;
 
   subscription$: Subscription = new Subscription();
 
@@ -76,5 +94,18 @@ export class TodosComponent implements OnInit {
       });
 
     this.currentWeek = this.dates[0];
+
+    for (let i = this.startHour; i <= this.endHour; i++) {
+      this.hours.push(i.toString());
+    }
+  }
+
+  ngAfterViewInit(): void {
+    const hoursElHeight = this.hoursEl.nativeElement.offsetHeight;
+    this.calculatedHeight = hoursElHeight;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 }
