@@ -1,5 +1,5 @@
 <div class="left">
-  <div class="header-container">
+  <div class="left-header">
     <h1>Todos</h1>
     <button class="btn">
       <fa-icon class="icon fa-lg" [icon]="faPlus"></fa-icon>
@@ -17,5 +17,16 @@
   </div>
 </div>
 <div class="right">
-  <button (click)="getWeek()">get week</button>
+  <div class="right-header">
+    <h1>{{ currentWeek | date : "MMMM yyyy" }}</h1>
+    <button class="btn">
+      <fa-icon class="icon fa-lg" [icon]="faChevronDown"></fa-icon>
+    </button>
+    <button class="btn">
+      <fa-icon class="icon fa-lg" [icon]="faArrowLeft"></fa-icon>
+    </button>
+    <button class="btn">
+      <fa-icon class="icon fa-lg" [icon]="faArrowRight"></fa-icon>
+    </button>
+  </div>
 </div>

@@ -11,7 +11,7 @@
     padding: 20px 10px;
 }
 
-.header-container{
+.left-header{
     display: flex;
     height: 40px;
     align-items: center;
@@ -55,4 +55,10 @@
 .right {
     display: flex;
     flex-direction: column;
+}
+
+.right-header{
+    display: flex;
+    height: 40px;
+    align-items: center;
 }

@@ -1,25 +1,38 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TodosContainerComponent } from 'shared/components/todos-container/todos-container.component';
 import { PanelDirective } from 'shared/directives/panel.directive';
 import { Todo } from 'shared/models/Todo.model';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faArrowLeft,
+  faArrowRight,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DateService } from 'services/date-service/date.service';
+import { Subscription } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [TodosContainerComponent, FontAwesomeModule],
+  imports: [TodosContainerComponent, FontAwesomeModule, DatePipe],
   hostDirectives: [PanelDirective],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
-export class TodosComponent {
+export class TodosComponent implements OnInit {
   private dateService = inject(DateService);
   date!: Date;
-  week!: Date[];
+  dates!: Date[];
+  currentWeek!: Date;
+
+  subscription$: Subscription = new Subscription();
 
   faPlus = faPlus;
+  faArrowLeft = faArrowLeft;
+  faArrowRight = faArrowRight;
+  faChevronDown = faChevronDown;
 
   todosToday: Todo[] = [
     {
@@ -55,7 +68,13 @@ export class TodosComponent {
     },
   ];
 
-  getWeek() {
-    //this.week = this.dateService.getWeek();
+  ngOnInit(): void {
+    this.subscription$ = this.dateService
+      .getDatesObservable()
+      .subscribe((dates: Date[]) => {
+        this.dates = dates;
+      });
+
+    this.currentWeek = this.dates[0];
   }
 }

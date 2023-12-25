@@ -6,32 +6,35 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DateService {
   date$ = new BehaviorSubject<Date>(new Date());
-
-  getDate() {
-    return this.date$.getValue();
-  }
+  dates$ = new BehaviorSubject<Date[]>([]);
 
   update() {
     this.date$.next(new Date());
+    this.dates$.next(this.getWeekDates());
   }
 
   getDateObservable() {
     return this.date$.asObservable();
   }
 
-  getWeek() {
-    const week = this.date$.getValue().getDate() - 1;
-    return week;
+  getDatesObservable() {
+    return this.dates$.asObservable();
   }
 
-  getDatesInRange(start: Date, end: Date) {
-    const dates: Date[] = [];
-    let currentDate = start;
-    while (currentDate <= end) {
-      dates.push(currentDate);
-      currentDate = new Date(currentDate.getTime());
-      currentDate.setDate(currentDate.getDate() + 1);
+  getWeekDates() {
+    let weekDates: Date[] = [];
+    const today = new Date();
+    const currentDay = today.getDay();
+    const daysToMonday = (currentDay + 6) % 7;
+    let currentMonday: Date | number = new Date().setDate(
+      today.getDate() - daysToMonday
+    );
+    currentMonday = new Date(currentMonday);
+    weekDates.push(currentMonday);
+    for (let i = 1; i < 7; i++) {
+      const day = new Date().setDate(currentMonday.getDate() + i);
+      weekDates.push(new Date(day));
     }
-    return dates;
+    return weekDates;
   }
 }
