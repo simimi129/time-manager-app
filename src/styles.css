@@ -7,7 +7,10 @@ html {
 }
 
 body {
-    background-color: #000;
+    background-image: url("./assets/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 html,body {
@@ -38,6 +41,9 @@ html,body {
     gap: 20px;
     width: 300px;
     padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(40px) saturate(100%) contrast(100%) brightness(50%);
+    border-right: 2px solid #0e0e0e;
 }
 
 .header{
@@ -53,6 +59,7 @@ html,body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #000;
 }
 
 .btn {
