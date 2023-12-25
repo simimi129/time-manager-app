@@ -6,7 +6,6 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { PanelDirective } from 'shared/directives/panel.directive';
 import { Todo } from 'shared/models/Todo.model';
 import {
   faPlus,
@@ -31,7 +30,6 @@ import { TaskComponent } from './components/task/task.component';
     TodosContainerComponent,
     TaskComponent,
   ],
-  hostDirectives: [PanelDirective],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
