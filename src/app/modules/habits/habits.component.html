@@ -2,6 +2,11 @@
   <div class="header">
     <h1>Habits</h1>
   </div>
+  <div class="habits-container">
+    @for (habit of habits; track $index) {
+    <app-habit [habit]="habit"></app-habit>
+    }
+  </div>
 </div>
 <div class="right">
   <div class="header">
@@ -41,7 +46,13 @@
     <div class="week-table-body">
       <div class="habits">
         @for (habit of habits; track $index) {
-        <span class="habit">{{ habit.title }}</span>
+        <div class="habit">
+          <span
+            class="habit-color"
+            [ngStyle]="{ backgroundColor: habit.color }"
+          ></span>
+          <span>{{ habit.title }}</span>
+        </div>
         }
       </div>
       <div class="habits-table">
@@ -49,7 +60,17 @@
         <div class="habit-col">
           @for (habit of habits; track $index) {
           <div class="habit-row">
-            <div class="habit-checkbox"></div>
+            <div
+              class="habit-checkbox"
+              [ngStyle]="{
+                backgroundColor:
+                  habit.isDone &&
+                  day.toISOString().split('T')[0] ===
+                    habit.date.toISOString().split('T')[0]
+                    ? habit.color
+                    : '#111'
+              }"
+            ></div>
           </div>
           }
         </div>

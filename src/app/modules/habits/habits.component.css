@@ -4,6 +4,17 @@
     height: 100%;
 }
 
+.habits-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+.habits-container::-webkit-scrollbar {
+    display: none;
+}
+
 .dates, .days{
     display: flex;
     justify-content: space-evenly;
@@ -17,6 +28,13 @@
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
+}
+
+.habit-color{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin-right: 10px;
 }
 
 .habit{
@@ -53,7 +71,6 @@
 }
 
 .habit-checkbox{
-    background-color: #111;
     width: 40px;
     height: 40px;
     border-radius: 10px;
