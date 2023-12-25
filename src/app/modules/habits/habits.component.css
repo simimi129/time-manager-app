@@ -3,3 +3,64 @@
     width: 100%;
     height: 100%;
 }
+
+.dates, .days{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 200px;
+    padding-right: 30px;
+}
+
+.habits{
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.habit{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    font-size: 1.4rem;
+}
+
+.habits-table{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-right: 30px;
+    height: fit-content;
+}
+
+.habit-col{
+    min-width: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.habit-row{
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.habit-checkbox{
+    background-color: #111;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.habit-checkbox:hover{
+    background-color: #222;
+}

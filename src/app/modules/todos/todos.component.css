@@ -10,51 +10,10 @@
     gap: 10px;
 }
 
-.icon{
-    width: 17.5px;
-    height: 17.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.week-table{
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    height: 96%;
-    gap: 30px;
-    overflow: hidden;
-}
-
-.week-table-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .dates, .days{
     display: flex;
     justify-content: space-evenly;
     padding: 0 30px;
-}
-
-.day{
-    min-width: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.week-table-body{
-    display: flex;
-    height: 100%;
-    overflow-y: scroll;
-}
-
-.week-table-body::-webkit-scrollbar {
-    display: none;
 }
 
 .hours{

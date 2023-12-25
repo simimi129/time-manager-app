@@ -52,12 +52,12 @@
       </div>
     </div>
     <div class="week-table-body">
-      <div #hoursEl class="hours">
+      <div class="hours">
         @for (hour of hours; track $index) {
         <span class="hour">{{ hour }}</span>
         }
       </div>
-      <div #tasksEl class="tasks">
+      <div class="tasks">
         @for (day of dates; track $index) {
         <div class="task-col">
           @for (hour of hours; track $index) {

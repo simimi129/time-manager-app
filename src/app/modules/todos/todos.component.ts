@@ -42,9 +42,6 @@ export class TodosComponent implements OnInit, OnDestroy {
   endHour = 22;
   hours: string[] = [];
 
-  @ViewChild('hoursEl', { static: true }) hoursEl!: ElementRef;
-  @ViewChild('tasksEl', { static: true }) tasksEl!: ElementRef;
-
   subscription$: Subscription = new Subscription();
 
   faPlus = faPlus;

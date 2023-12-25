@@ -82,3 +82,35 @@ html,body {
     gap: 10px;
     min-height: 40px;
 }
+
+.week-table{
+    display: flex;
+    flex-direction: column;
+    height: 96%;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.week-table-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.week-table-body{
+    display: flex;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.week-table-body::-webkit-scrollbar {
+    display: none;
+}
+
+.day{
+    min-width: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

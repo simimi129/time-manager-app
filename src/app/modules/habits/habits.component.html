@@ -1,15 +1,60 @@
 <div class="left">
   <div class="header">
-    <h1>Today</h1>
+    <h1>Habits</h1>
   </div>
 </div>
 <div class="right">
   <div class="header">
     <div class="header-title">
-      <h1>Habits</h1>
+      <h1>{{ currentWeek | date : "MMMM yyyy" }}</h1>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faChevronDown"></fa-icon>
+      </button>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faArrowLeft"></fa-icon>
+      </button>
+      <button class="btn">
+        <fa-icon class="icon fa-lg" [icon]="faArrowRight"></fa-icon>
+      </button>
     </div>
     <div class="header-btns">
       <button class="btn">Share</button>
+    </div>
+  </div>
+  <div class="week-table">
+    <div class="week-table-header">
+      <div class="dates">
+        @for (day of dates; track $index) {
+        <h1 class="day">
+          {{ day | date : "dd" }}
+        </h1>
+        }
+      </div>
+      <div class="days">
+        @for (day of dates; track $index) {
+        <h2 class="day">
+          {{ day | date : "E" }}
+        </h2>
+        }
+      </div>
+    </div>
+    <div class="week-table-body">
+      <div class="habits">
+        @for (habit of habits; track $index) {
+        <span class="habit">{{ habit.title }}</span>
+        }
+      </div>
+      <div class="habits-table">
+        @for (day of dates; track $index) {
+        <div class="habit-col">
+          @for (habit of habits; track $index) {
+          <div class="habit-row">
+            <div class="habit-checkbox"></div>
+          </div>
+          }
+        </div>
+        }
+      </div>
     </div>
   </div>
 </div>
