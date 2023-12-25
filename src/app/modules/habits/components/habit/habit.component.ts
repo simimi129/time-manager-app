@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Habit } from 'modules/habits/Habit.model';
+import { Habit } from 'modules/habits/components/models/Habit.model';
 
 @Component({
   selector: 'app-habit',

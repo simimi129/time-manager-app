@@ -62,13 +62,9 @@
           <div class="habit-row">
             <div
               class="habit-checkbox"
+              (click)="toggleHabitCompletion(habit, day)"
               [ngStyle]="{
-                backgroundColor:
-                  habit.isDone &&
-                  day.toISOString().split('T')[0] ===
-                    habit.date.toISOString().split('T')[0]
-                    ? habit.color
-                    : '#111'
+                backgroundColor: habit.isDoneOnDate(day) ? habit.color : '#111'
               }"
             ></div>
           </div>

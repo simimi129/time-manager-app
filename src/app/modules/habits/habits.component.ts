@@ -7,7 +7,7 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { DateService } from 'services/date-service/date.service';
-import { Habit } from './Habit.model';
+import { Habit } from './components/models/Habit.model';
 import { Subscription } from 'rxjs';
 import { HabitComponent } from './components/habit/habit.component';
 import { HabitsService } from 'services/habits-service/habits.service';
@@ -54,5 +54,9 @@ export class HabitsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.dateSubscription$.unsubscribe();
     this.habitsSubscription$.unsubscribe();
+  }
+
+  toggleHabitCompletion(habit: Habit, date: Date) {
+    habit.toggleDoneOnDate(date);
   }
 }
