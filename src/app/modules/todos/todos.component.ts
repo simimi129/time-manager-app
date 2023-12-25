@@ -1,13 +1,10 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnDestroy,
   OnInit,
   ViewChild,
-  computed,
   inject,
-  signal,
 } from '@angular/core';
 import { TodosContainerComponent } from 'shared/components/todos-container/todos-container.component';
 import { PanelDirective } from 'shared/directives/panel.directive';
@@ -31,7 +28,7 @@ import { CommonModule, DatePipe } from '@angular/common';
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
-export class TodosComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TodosComponent implements OnInit, OnDestroy {
   private dateService = inject(DateService);
   date!: Date;
   dates!: Date[];
@@ -39,8 +36,6 @@ export class TodosComponent implements OnInit, AfterViewInit, OnDestroy {
   startHour = 6;
   endHour = 22;
   hours: string[] = [];
-
-  calculatedHeight = 0;
 
   @ViewChild('hoursEl', { static: true }) hoursEl!: ElementRef;
   @ViewChild('tasksEl', { static: true }) tasksEl!: ElementRef;
@@ -98,11 +93,6 @@ export class TodosComponent implements OnInit, AfterViewInit, OnDestroy {
     for (let i = this.startHour; i <= this.endHour; i++) {
       this.hours.push(i.toString());
     }
-  }
-
-  ngAfterViewInit(): void {
-    const hoursElHeight = this.hoursEl.nativeElement.offsetHeight;
-    this.calculatedHeight = hoursElHeight;
   }
 
   ngOnDestroy(): void {

@@ -120,10 +120,14 @@
     padding-right: 30px;
 }
 
-.day-col{
+.task-col{
     min-width: 40px;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.task-row{
+    min-height: 100px;
 }

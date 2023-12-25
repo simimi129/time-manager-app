@@ -57,9 +57,13 @@
         <span class="hour">{{ hour }}</span>
         }
       </div>
-      <div #tasksEl class="tasks" [ngStyle]="{ 'height.px': calculatedHeight }">
+      <div #tasksEl class="tasks">
         @for (day of dates; track $index) {
-        <div class="day-col">Task</div>
+        <div class="task-col">
+          @for (hour of hours; track $index) {
+          <div class="task-row"></div>
+          }
+        </div>
         }
       </div>
     </div>
