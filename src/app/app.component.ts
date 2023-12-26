@@ -14,7 +14,7 @@ import { DateService } from 'services/date-service/date.service';
 export class AppComponent implements OnInit {
   private dateService = inject(DateService);
 
-  title = 'frontend';
+  title = 'time';
 
   ngOnInit(): void {
     this.dateService.update();

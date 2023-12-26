@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root{
+    --red: #F94144;
+    --orange-dark: #F3722C;
+    --orange: #F8961E;
+    --orange-pastel: #F9844A;
+    --yellow: #F9C74F;
+    --green: #90BE6D;
+    --torqoise: #43AA8B;
+    --blue-light: #4D908E;
+    --blue-gray: #577590;
+    --blue: #277DA1;
+}
+
 html {
     font-size: 62.5%;
     font-family: 'Inter', sans-serif;

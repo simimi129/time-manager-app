@@ -5,6 +5,7 @@ export class Habit {
   title!: string;
   isDoneOnDates!: isDoneOnDate[];
   color!: string;
+  streak!: number;
 
   constructor(
     id: number,
@@ -15,7 +16,7 @@ export class Habit {
     this.id = id;
     this.title = title;
     this.isDoneOnDates = isDoneOnDates;
-    this.color = color;
+    this.color = `var(--${color})`;
   }
 
   isDoneOnDate(date: Date): boolean {
