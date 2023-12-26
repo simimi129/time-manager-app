@@ -1,6 +1,10 @@
 <div class="habit" [ngStyle]="{ backgroundColor: habit.color }">
   <h2>{{ habit.title }}</h2>
   <button class="btn" (click)="toggleHabitCompletion.emit()">
-    Mark as Complete
+    {{
+      habit.isDoneOnDate(currentDate)
+        ? "Mark as Incomplete"
+        : "Mark as Complete"
+    }}
   </button>
 </div>

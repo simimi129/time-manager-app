@@ -13,4 +13,5 @@ export class HabitComponent {
   @Input() habit!: Habit;
 
   @Output() toggleHabitCompletion = new EventEmitter();
+  currentDate = new Date();
 }
