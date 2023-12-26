@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { Habit } from 'modules/habits/components/models/Habit.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Habit } from 'modules/habits/models/Habit.model';
 
 @Component({
   selector: 'app-habit',
@@ -11,4 +11,6 @@ import { Habit } from 'modules/habits/components/models/Habit.model';
 })
 export class HabitComponent {
   @Input() habit!: Habit;
+
+  @Output() toggleHabitCompletion = new EventEmitter();
 }

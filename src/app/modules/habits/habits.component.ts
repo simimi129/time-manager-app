@@ -7,7 +7,7 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { DateService } from 'services/date-service/date.service';
-import { Habit } from './components/models/Habit.model';
+import { Habit } from './models/Habit.model';
 import { Subscription } from 'rxjs';
 import { HabitComponent } from './components/habit/habit.component';
 import { HabitsService } from 'services/habits-service/habits.service';
@@ -24,6 +24,7 @@ export class HabitsComponent implements OnInit, OnDestroy {
   private habitsService = inject(HabitsService);
   dates!: Date[];
   currentWeek!: Date;
+  currentDate = new Date();
 
   dateSubscription$: Subscription = new Subscription();
   habitsSubscription$: Subscription = new Subscription();

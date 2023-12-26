@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Habit } from 'modules/habits/components/models/Habit.model';
+import { Habit } from 'modules/habits/models/Habit.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

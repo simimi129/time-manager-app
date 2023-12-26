@@ -4,7 +4,10 @@
   </div>
   <div class="habits-container">
     @for (habit of habits; track $index) {
-    <app-habit [habit]="habit"></app-habit>
+    <app-habit
+      [habit]="habit"
+      (toggleHabitCompletion)="toggleHabitCompletion(habit, currentDate)"
+    ></app-habit>
     }
   </div>
 </div>

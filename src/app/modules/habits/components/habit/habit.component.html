@@ -1,3 +1,6 @@
 <div class="habit" [ngStyle]="{ backgroundColor: habit.color }">
   <h2>{{ habit.title }}</h2>
+  <button class="btn" (click)="toggleHabitCompletion.emit()">
+    Mark as Complete
+  </button>
 </div>
