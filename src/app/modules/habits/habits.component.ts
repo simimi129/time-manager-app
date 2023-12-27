@@ -78,7 +78,7 @@ export class HabitsComponent implements OnInit, OnDestroy {
           isDone: true,
         },
       ],
-      'green'
+      'purple'
     );
     const habitDto = new HabitDto(habit);
     this.habitsApiService.postHabit(habitDto).subscribe();

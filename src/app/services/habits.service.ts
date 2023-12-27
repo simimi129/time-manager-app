@@ -6,36 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class HabitsService {
-  private habits$ = new BehaviorSubject<Habit[]>([
-    new Habit(
-      'Habit 1',
-      [
-        {
-          date: new Date().toISOString().split('T')[0],
-          isDone: true,
-        },
-        {
-          date: '2023-12-27',
-          isDone: true,
-        },
-      ],
-      'red'
-    ),
-    new Habit(
-      'Habit 2',
-      [
-        {
-          date: new Date().toISOString().split('T')[0],
-          isDone: true,
-        },
-        {
-          date: '2023-12-28',
-          isDone: true,
-        },
-      ],
-      'blue'
-    ),
-  ]);
+  private habits$ = new BehaviorSubject<Habit[]>([]);
 
   getHabitsObservable() {
     return this.habits$.asObservable();
