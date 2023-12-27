@@ -6,11 +6,13 @@ import {
   faArrowRight,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
-import { DateService } from 'services/date-service/date.service';
+import { DateService } from 'services/date.service';
 import { Habit } from './models/Habit.model';
 import { Subscription } from 'rxjs';
 import { HabitComponent } from './components/habit/habit.component';
-import { HabitsService } from 'services/habits-service/habits.service';
+import { HabitsService } from 'services/habits.service';
+import { HabitsApiService } from 'services/api-services/habits-api.service';
+import { HabitDto } from 'shared/models/api/HabitDto.model';
 
 @Component({
   selector: 'app-habits',
@@ -22,9 +24,7 @@ import { HabitsService } from 'services/habits-service/habits.service';
 export class HabitsComponent implements OnInit, OnDestroy {
   private dateService = inject(DateService);
   private habitsService = inject(HabitsService);
-  dates!: Date[];
-  currentWeek!: Date;
-  currentDate = new Date();
+  private habitsApiService = inject(HabitsApiService);
 
   dateSubscription$: Subscription = new Subscription();
   habitsSubscription$: Subscription = new Subscription();
@@ -32,6 +32,10 @@ export class HabitsComponent implements OnInit, OnDestroy {
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
   faChevronDown = faChevronDown;
+
+  dates!: Date[];
+  currentWeek!: Date;
+  currentDate = new Date();
 
   habits: Habit[] = [];
 
@@ -59,5 +63,24 @@ export class HabitsComponent implements OnInit, OnDestroy {
 
   toggleHabitCompletion(habit: Habit, date: Date) {
     habit.toggleDoneOnDate(date);
+  }
+
+  addHabit() {
+    const habit = new Habit(
+      'Habit 3',
+      [
+        {
+          date: new Date().toISOString().split('T')[0],
+          isDone: true,
+        },
+        {
+          date: '2023-12-29',
+          isDone: true,
+        },
+      ],
+      'green'
+    );
+    const habitDto = new HabitDto(habit);
+    this.habitsApiService.postHabit(habitDto).subscribe();
   }
 }

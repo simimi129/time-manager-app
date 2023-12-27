@@ -1,20 +1,13 @@
 import { isDoneOnDate } from './isDoneOnDate.model';
 
 export class Habit {
-  id!: number;
-  title!: string;
+  name!: string;
   isDoneOnDates!: isDoneOnDate[];
   color!: string;
   streak!: number;
 
-  constructor(
-    id: number,
-    title: string,
-    isDoneOnDates: isDoneOnDate[],
-    color: string
-  ) {
-    this.id = id;
-    this.title = title;
+  constructor(name: string, isDoneOnDates: isDoneOnDate[], color: string) {
+    this.name = name;
     this.isDoneOnDates = isDoneOnDates;
     this.color = `var(--${color})`;
   }

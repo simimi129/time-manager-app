@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class HabitsService {
   private habits$ = new BehaviorSubject<Habit[]>([
     new Habit(
-      1,
       'Habit 1',
       [
         {
@@ -23,7 +22,6 @@ export class HabitsService {
       'red'
     ),
     new Habit(
-      2,
       'Habit 2',
       [
         {
@@ -36,21 +34,6 @@ export class HabitsService {
         },
       ],
       'blue'
-    ),
-    new Habit(
-      3,
-      'Habit 3',
-      [
-        {
-          date: new Date().toISOString().split('T')[0],
-          isDone: true,
-        },
-        {
-          date: '2023-12-29',
-          isDone: true,
-        },
-      ],
-      'green'
     ),
   ]);
 

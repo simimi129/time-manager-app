@@ -1,5 +1,5 @@
 <div class="habit" [ngStyle]="{ backgroundColor: habit.color }">
-  <h2>{{ habit.title }}</h2>
+  <h2>{{ habit.name }}</h2>
   <button class="btn" (click)="toggleHabitCompletion.emit()">
     {{
       habit.isDoneOnDate(currentDate)

@@ -1,6 +1,7 @@
 <div class="left">
   <div class="header">
     <h1>Habits</h1>
+    <button (click)="addHabit()">Add</button>
   </div>
   <div class="habits-container">
     @for (habit of habits; track $index) {
@@ -54,7 +55,7 @@
             class="habit-color"
             [ngStyle]="{ backgroundColor: habit.color }"
           ></span>
-          <span>{{ habit.title }}</span>
+          <span>{{ habit.name }}</span>
         </div>
         }
       </div>

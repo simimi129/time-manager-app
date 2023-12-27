@@ -8,7 +8,7 @@ import {
 import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { Todo } from 'shared/models/Todo.model';
+import { Todo } from 'shared/models/ui/Todo.model';
 
 @Component({
   selector: 'app-todos-container',

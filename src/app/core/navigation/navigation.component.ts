@@ -10,7 +10,7 @@ import {
   faRepeat,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
-import { DateService } from 'services/date-service/date.service';
+import { DateService } from 'services/date.service';
 import { Subscription } from 'rxjs';
 
 @Component({

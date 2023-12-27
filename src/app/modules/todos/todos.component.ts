@@ -6,7 +6,7 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { Todo } from 'shared/models/Todo.model';
+import { Todo } from 'shared/models/ui/Todo.model';
 import {
   faPlus,
   faArrowLeft,
@@ -14,7 +14,7 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DateService } from 'services/date-service/date.service';
+import { DateService } from 'services/date.service';
 import { Subscription } from 'rxjs';
 import { CommonModule, DatePipe } from '@angular/common';
 import { TodosContainerComponent } from './components/todos-container/todos-container.component';
