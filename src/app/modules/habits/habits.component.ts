@@ -53,7 +53,8 @@ export class HabitsComponent implements OnInit, OnDestroy {
       });
 
     this.currentWeek = this.dates[0];
-    console.log(this.currentWeek.toISOString().split('T')[0]);
+
+    this.getHabits();
   }
 
   ngOnDestroy(): void {
@@ -67,20 +68,32 @@ export class HabitsComponent implements OnInit, OnDestroy {
 
   addHabit() {
     const habit = new Habit(
-      'Habit 3',
+      'Habit 5',
       [
         {
           date: new Date().toISOString().split('T')[0],
           isDone: true,
         },
         {
-          date: '2023-12-29',
+          date: '2023-12-28',
           isDone: true,
         },
       ],
       'purple'
     );
     const habitDto = new HabitDto(habit);
-    this.habitsApiService.postHabit(habitDto).subscribe();
+    this.habitsApiService.postHabit(habitDto).subscribe(() => {
+      this.getHabits();
+    });
+  }
+
+  getHabits() {
+    this.habitsApiService.getHabits().subscribe((res) => {
+      let habits: Habit[] = [];
+      for (const habit of res) {
+        habits.push(new Habit(habit.name, habit.isDoneOnDates, habit.color));
+      }
+      this.habitsService.setHabits(habits);
+    });
   }
 }

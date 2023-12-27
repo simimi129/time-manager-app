@@ -9,7 +9,7 @@ export class Habit {
   constructor(name: string, isDoneOnDates: isDoneOnDate[], color: string) {
     this.name = name;
     this.isDoneOnDates = isDoneOnDates;
-    this.color = `var(--${color})`;
+    this.color = color;
   }
 
   isDoneOnDate(date: Date): boolean {

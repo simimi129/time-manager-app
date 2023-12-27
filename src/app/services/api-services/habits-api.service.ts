@@ -13,4 +13,8 @@ export class HabitsApiService {
   postHabit(habit: HabitDto): Observable<HabitDto> {
     return this.http.post<HabitDto>(`${this.baseApiUrl}/habit`, habit);
   }
+
+  getHabits(): Observable<HabitDto[]> {
+    return this.http.get<HabitDto[]>(`${this.baseApiUrl}/habits`);
+  }
 }
