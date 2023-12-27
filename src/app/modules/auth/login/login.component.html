@@ -1,0 +1,25 @@
+<form class="login">
+  <div class="input-container">
+    <label class="label" for="username">Username:</label>
+    <input
+      class="input"
+      type="text"
+      [formControl]="username"
+      id="username"
+      name="username"
+      required
+    />
+  </div>
+  <div class="input-container">
+    <label class="label" for="password">Password:</label>
+    <input
+      class="input"
+      type="password"
+      [formControl]="password"
+      id="password"
+      name="password"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
