@@ -1,25 +1,51 @@
-<form class="register">
+<form class="register" [formGroup]="accountForm" (ngSubmit)="submit()">
+  <div class="input-container">
+    <label class="label" for="email">Email:</label>
+    <input
+      class="input"
+      type="email"
+      formControlName="email"
+      id="email"
+      name="email"
+      placeholder="email"
+    />
+    @if (!accountForm.get('email')?.valid) {
+    <span class="error">Email is invalid</span>
+    }
+  </div>
   <div class="input-container">
     <label class="label" for="username">Username:</label>
     <input
       class="input"
       type="text"
-      [formControl]="username"
+      formControlName="username"
       id="username"
       name="username"
-      required
+      placeholder="username"
     />
+    @if (!accountForm.get('username')?.valid) {
+    <span class="error">Username is invalid!</span>
+    }
   </div>
   <div class="input-container">
     <label class="label" for="password">Password:</label>
     <input
       class="input"
       type="password"
-      [formControl]="password"
+      formControlName="password"
       id="password"
       name="password"
-      required
+      placeholder="password"
     />
+    @if (!accountForm.get('password')?.valid) {
+    <span class="error">Password is invalid!</span>
+    }
   </div>
-  <button type="submit" class="btn btn-primary">Register</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!accountForm.valid">
+    Register
+  </button>
+  <span
+    >Already have an account?
+    <a class="link" routerLink="/auth/login">Login</a></span
+  >
 </form>
