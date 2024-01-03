@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ApiService } from './ApiService.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,15 @@ import { ApiService } from './ApiService.interface';
 export class AuthService extends ApiService {
   private http = inject(HttpClient);
 
-  register(data: any) {
-    this.http.post(this.baseUrl + '/auth/register', data).subscribe();
+  register(data: any): Observable<any> {
+    return this.http.post(this.baseUrl + '/auth/register', data);
   }
 
-  login(data: any) {
-    this.http.post(this.baseUrl + '/auth/login', data).subscribe();
+  login(data: any): Observable<any> {
+    return this.http.post(this.baseUrl + '/auth/login', data);
   }
 
-  logout() {
-    this.http.get(this.baseUrl + '/auth/logout').subscribe();
+  logout(): Observable<any> {
+    return this.http.get(this.baseUrl + '/auth/logout');
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AuthService } from 'services/api-services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  private authService = inject(AuthService);
+
   accountForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', Validators.required),
@@ -22,8 +25,6 @@ export class LoginComponent {
   });
 
   submit() {
-    if (this.accountForm.valid) {
-      console.log(this.accountForm.value);
-    }
+    this.authService.login(this.accountForm.value).subscribe();
   }
 }
