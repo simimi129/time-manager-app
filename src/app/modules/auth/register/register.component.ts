@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'services/api-services/auth.service';
 
 @Component({
@@ -17,6 +17,7 @@ import { AuthService } from 'services/api-services/auth.service';
 })
 export class RegisterComponent {
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   accountForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,6 +26,12 @@ export class RegisterComponent {
   });
 
   submit() {
-    this.authService.register(this.accountForm.value).subscribe();
+    this.authService.register(this.accountForm.value).subscribe(
+      () => {},
+      () => {},
+      () => {
+        this.router.navigate(['auth/login']);
+      }
+    );
   }
 }
