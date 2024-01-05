@@ -41,7 +41,12 @@
     <span class="error">Password is invalid!</span>
     }
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!accountForm.valid">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!accountForm.valid"
+    (click)="submit()"
+  >
     Register
   </button>
   <span
